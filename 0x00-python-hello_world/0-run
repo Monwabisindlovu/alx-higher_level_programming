@@ -1,5 +1,2 @@
 #!/bin/bash
-if [ -n "$PYFILE" ]; then
-python3 "$PYFILE"
-fi
-
+[ -n "$PYFILE" ] && python3 "$PYFILE"
