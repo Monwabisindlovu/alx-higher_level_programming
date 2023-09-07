@@ -1,15 +1,19 @@
 #!/usr/bin/python3
-import sys
+# Import all functions from calculator_1.py
 from calculator_1 import add, sub, mul, div
+import sys
 
+# Check the number of arguments
 if len(sys.argv) != 4:
     print("Usage: ./100-my_calculator.py <a> <operator> <b>")
     sys.exit(1)
 
+# Get the arguments
 a = int(sys.argv[1])
 operator = sys.argv[2]
 b = int(sys.argv[3])
 
+# Perform the operation based on the operator
 if operator == "+":
     result = add(a, b)
 elif operator == "-":
@@ -22,4 +26,6 @@ else:
     print("Unknown operator. Available operators: +, -, * and /")
     sys.exit(1)
 
-print(f"{a} {operator} {b} = {result}")
+# Print the result
+print("{} {} {} = {}".format(a, operator, b, result))
+
