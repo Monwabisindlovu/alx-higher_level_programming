@@ -1,11 +1,12 @@
 #!/usr/bin/python3
-import sys
 
-args = sys.argv[1:]
-num_args = len(args)
+if __name__ == "__main__":
+    from calculator_1 import add, sub, mul, div
 
-print(f"Number of argument{'s' if num_args != 1 else ''}: {num_args}{':' if num_args > 0 else '.'}")
+    a = 10
+    b = 5
 
-for i, arg in enumerate(args, start=1):
-    print(f"{i}: {arg}")
-
+    print(f"{a} + {b} = {add(a, b)}")
+    print(f"{a} - {b} = {sub(a, b)}")
+    print(f"{a} * {b} = {mul(a, b)}")
+    print(f"{a} / {b} = {div(a, b)}")
