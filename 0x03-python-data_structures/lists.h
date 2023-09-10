@@ -38,5 +38,5 @@ listint_t *insert_node(listint_t **head, int number);
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);
 int delete_nodeint_at_index(listint_t **head, unsigned int index);
 void reverse_listint(listint_t **head);
-
+void print_python_list_info(PyObject *p);
 #endif /* LISTS_H */
