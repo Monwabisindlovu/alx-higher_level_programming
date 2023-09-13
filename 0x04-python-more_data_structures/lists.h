@@ -1,5 +1,7 @@
-fndef LISTS_H
+#ifndef LISTS_H
 #define LISTS_H
+
+#include <Python.h>  // Include Python.h for PyObject
 
 /* Task 0 */
 int square_matrix_simple(int **matrix, int rows, int cols);
@@ -11,12 +13,20 @@ int *search_replace(int *my_list, int size, int search, int replace);
 int uniq_add(int *my_list, int size);
 
 /* Task 3 */
+typedef struct set_t {
+    /* Define set_t members here if needed */
+} set_t;
+
 set_t *common_elements(set_t *set_1, set_t *set_2);
 
 /* Task 4 */
 set_t *only_diff_elements(set_t *set_1, set_t *set_2);
 
 /* Task 5 */
+typedef struct dictionary_t {
+    /* Define dictionary_t members here if needed */
+} dictionary_t;
+
 int number_keys(dictionary_t *a_dictionary);
 
 /* Task 6 */
