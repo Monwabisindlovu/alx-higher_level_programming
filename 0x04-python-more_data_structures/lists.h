@@ -14,7 +14,7 @@ int uniq_add(int *my_list, int size);
 
 /* Task 3 */
 typedef struct set_t {
-    /* Define set_t members here if needed */
+    int dummy;  /* Dummy member, replace with actual members */
 } set_t;
 
 set_t *common_elements(set_t *set_1, set_t *set_2);
@@ -24,7 +24,7 @@ set_t *only_diff_elements(set_t *set_1, set_t *set_2);
 
 /* Task 5 */
 typedef struct dictionary_t {
-    /* Define dictionary_t members here if needed */
+    int dummy;  /* Dummy member, replace with actual members */
 } dictionary_t;
 
 int number_keys(dictionary_t *a_dictionary);
