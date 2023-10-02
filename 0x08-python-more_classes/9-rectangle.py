@@ -4,8 +4,7 @@ This module defines a Rectangle class and a method for creating a square.
 
 The Rectangle class defines a rectangle by its width and height, which are 
 both integers greater than or equal to 0. The class also includes methods 
-for calculating the area and perimeter of the Rectangle, and for comparing 
-the areas of two Rectangles.
+for calculating the area and perimeter of the Rectangle.
 
 The square method returns a new Rectangle instance with equal width and height.
 """
