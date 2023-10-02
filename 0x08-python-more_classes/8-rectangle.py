@@ -5,8 +5,8 @@ class Rectangle:
     This class defines a rectangle.
 
     Attributes:
-        number_of_instances (int): A class attribute to count the number of instances.
-        print_symbol (any): A class attribute used as the symbol for string representation.
+        width (int): The width of the rectangle.
+        height (int): The height of the rectangle.
     """
 
     number_of_instances = 0
@@ -103,7 +103,7 @@ class Rectangle:
     @staticmethod
     def bigger_or_equal(rect_1, rect_2):
         """
-        Compares two rectangles and returns the one with the larger area.
+        Compares two rectangles and returns the biggest rectangle based on the area.
 
         Args:
             rect_1 (Rectangle): The first rectangle to compare.
@@ -137,11 +137,11 @@ class Rectangle:
         """
         if self.__width == 0 or self.__height == 0:
             return ""
-        return "\n".join([str(self.print_symbol) * self.__width] * self.__height)
+        return ((str(self.print_symbol) * self.__width) + '\n') * self.__height
 
     def __repr__(self):
         """
-        Returns a string representation that can recreate the object.
+        Returns a string representation of the rectangle to recreate a new instance.
 
         Returns:
             str: A string representation of the rectangle.
@@ -150,7 +150,7 @@ class Rectangle:
 
     def __del__(self):
         """
-        Deletes the rectangle instance and decrements the count of instances.
+        Prints a message when an instance of Rectangle is deleted.
         """
-        Rectangle.number_of_instances -= 1
         print("Bye rectangle...")
+        Rectangle.number_of_instances -= 1
