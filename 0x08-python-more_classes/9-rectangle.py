@@ -1,16 +1,23 @@
 #!/usr/bin/python3
+"""
+This module defines a Rectangle class and a method for creating a square.
+
+The Rectangle class defines a rectangle by its width and height, which are 
+both integers greater than or equal to 0. The class also includes methods 
+for calculating the area and perimeter of the Rectangle, and for comparing 
+the areas of two Rectangles.
+
+The square method returns a new Rectangle instance with equal width and height.
+"""
 
 class Rectangle:
     """
     This class defines a rectangle.
 
     Attributes:
-        number_of_instances (int): A class attribute to count the number of instances.
-        print_symbol (any): A class attribute used as the symbol for string representation.
+        width (int): The width of the rectangle. Must be an integer greater than or equal to 0.
+        height (int): The height of the rectangle. Must be an integer greater than or equal to 0.
     """
-
-    number_of_instances = 0
-    print_symbol = "#"
 
     def __init__(self, width=0, height=0):
         """
@@ -22,7 +29,6 @@ class Rectangle:
         """
         self.width = width
         self.height = height
-        Rectangle.number_of_instances += 1
 
     @property
     def width(self):
@@ -100,34 +106,6 @@ class Rectangle:
             return 0
         return 2 * (self.__width + self.__height)
 
-    @staticmethod
-    def bigger_or_equal(rect_1, rect_2):
-        """
-        Compares two rectangles and returns the one with the larger area.
-
-        Args:
-            rect_1 (Rectangle): The first rectangle to compare.
-            rect_2 (Rectangle): The second rectangle to compare.
-
-        Returns:
-            Rectangle: The rectangle with the larger area.
-
-        Raises:
-            TypeError: If either rect_1 or rect_2 is not an instance of Rectangle.
-        """
-        if not isinstance(rect_1, Rectangle):
-            raise TypeError("rect_1 must be an instance of Rectangle")
-        if not isinstance(rect_2, Rectangle):
-            raise TypeError("rect_2 must be an instance of Rectangle")
-        
-        area1 = rect_1.area()
-        area2 = rect_2.area()
-
-        if area1 >= area2:
-            return rect_1
-        else:
-            return rect_2
-
     @classmethod
     def square(cls, size=0):
         """
@@ -140,30 +118,3 @@ class Rectangle:
             Rectangle: A new Rectangle instance representing a square.
         """
         return cls(size, size)
-
-    def __str__(self):
-        """
-        Returns a string representation of the rectangle.
-
-        Returns:
-            str: A string representation of the rectangle.
-        """
-        if self.__width == 0 or self.__height == 0:
-            return ""
-        return "\n".join([str(self.print_symbol) * self.__width] * self.__height)
-
-    def __repr__(self):
-        """
-        Returns a string representation that can recreate the object.
-
-        Returns:
-            str: A string representation of the rectangle.
-        """
-        return "Rectangle({}, {})".format(self.__width, self.__height)
-
-    def __del__(self):
-        """
-        Deletes the rectangle instance and decrements the count of instances.
-        """
-        Rectangle.number_of_instances -= 1
-        print("Bye rectangle...")
