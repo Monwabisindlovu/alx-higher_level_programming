@@ -1,0 +1,4 @@
+# Create 103-line1.txt with the answer "1"
+with open("103-line1.txt", "w") as file:
+    file.write("1\n")
+
