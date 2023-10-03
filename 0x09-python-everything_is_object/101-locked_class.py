@@ -1,8 +1,11 @@
 #!/usr/bin/python3
 class LockedClass:
     """
-    This class prevents the user from dynamically creating new instance attributes,
-    except if the new instance attribute is called first_name.
+    A class that locks down attribute assignments.
+
+    This class is designed to only allow the creation of the 'first_name' attribute.
+    Any attempt to set any other attribute will raise an AttributeError.
     """
+
     __slots__ = ['first_name']
 
