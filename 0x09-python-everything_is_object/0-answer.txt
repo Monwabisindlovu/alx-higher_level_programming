@@ -1,4 +1,4 @@
 #!/usr/bin/python3
->>> x = 42
->>> type(x)
-<class 'int'>
+
+x = 42
+print(type(x))
