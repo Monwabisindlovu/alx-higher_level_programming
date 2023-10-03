@@ -1,0 +1,4 @@
+#!/usr/bin/python3
+>>> x = 42
+>>> type(x)
+<class 'int'>
