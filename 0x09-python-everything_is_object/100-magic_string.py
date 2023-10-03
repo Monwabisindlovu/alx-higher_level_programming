@@ -8,6 +8,8 @@ def magic_string():
     Returns:
         str: The string "BestSchool" repeated n times.
     """
-    magic_string.counter = getattr(magic_string, 'counter', -1) + 1
+    if not hasattr(magic_string, 'counter'):
+        magic_string.counter = -1
+    magic_string.counter += 1
     return "BestSchool, " * magic_string.counter + "BestSchool"
 
