@@ -2,19 +2,13 @@
 
 def copy_list(l):
     """
-    Create and return a copy of a given list.
+    This function returns a copy of a list.
 
     Args:
         l (list): The list to be copied.
 
     Returns:
-        list: A new list containing the same elements as the input list.
-
-    Example:
-        >>> my_list = [1, 2, 3]
-        >>> new_list = copy_list(my_list)
-        >>> print(new_list)
-        [1, 2, 3]
+        list: A copy of the input list.
     """
-    return l[:]
+    return l.copy()
 
