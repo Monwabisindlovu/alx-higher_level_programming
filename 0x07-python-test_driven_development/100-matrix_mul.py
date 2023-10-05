@@ -1,43 +1,27 @@
 #!/usr/bin/python3
-# 101-lazy_matrix_mul.py
-"""Defines a matrix multiplication function using NumPy."""
-
-import numpy as np
-
-def lazy_matrix_mul(m_a, m_b):
-    """Multiply two matrices using NumPy.
+def matrix_mul(m_a, m_b):
+    """Multiply two matrices.
 
     Args:
-        m_a (list of lists): The first matrix.
-        m_b (list of lists): The second matrix.
-
+        m_a (list of lists of ints/floats): The first matrix.
+        m_b (list of lists of ints/floats): The second matrix.
     Raises:
-        ValueError: If the matrices cannot be multiplied due to incompatible dimensions.
-        TypeError: If the matrices contain invalid data, e.g., non-numeric elements.
-
+        ValueError: If m_a or m_b is empty or has different-sized rows.
     Returns:
-        list of lists: The result of matrix multiplication as a list of lists.
-
-    Example:
-
-    >>> m_a = [[1, 2], [3, 4]]
-    >>> m_b = [[1, 2], [3, 4]]
-    >>> result = lazy_matrix_mul(m_a, m_b)
-    >>> print(result)
-    [[ 7 10]
-     [15 22]]
+        A new matrix representing the multiplication of m_a by m_b.
     """
-    try:
-        np_m_a = np.array(m_a)
-        np_m_b = np.array(m_b)
-        result = np.matmul(np_m_a, np_m_b)
-        return result.tolist()
-    except ValueError:
-        raise ValueError("Matrices cannot be multiplied due to incompatible dimensions")
-    except TypeError:
-        raise TypeError("Matrices must contain only integers or floats")
+    if len(m_a[0]) != len(m_b):
+        raise ValueError("m_a and m_b can't be multiplied")
 
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+    result = []
 
+    for i in range(len(m_a)):
+        row = []
+        for j in range(len(m_b[0])):
+            product = 0
+            for k in range(len(m_b)):
+                product += m_a[i][k] * m_b[k][j]
+            row.append(product)
+        result.append(row)
+
+    return result
