@@ -1,36 +1,43 @@
 #!/usr/bin/python3
-Args:
-    m_a (list of lists): The first matrix.
-    m_b (list of lists): The second matrix.
+"""Module to perform matrix multiplication using NumPy"""
 
-Returns:
-    numpy.ndarray: The product of m_a and m_b.
+import numpy as np
 
-Raises:
-    TypeError: If m_a or m_b is not a list, not a list of lists, contains non-numerical elements, or has rows of different sizes.
-    ValueError: If m_a or m_b is empty or if their dimensions are incompatible for multiplication.
-"""
-"" Convert the matrices to numpy arrays """
-try:
-    a = np.array(m_a)
-    b = np.array(m_b)
-except Exception:
-    raise TypeError("m_a and m_b must be a list of lists")
+def lazy_matrix_mul(m_a, m_b):
+    """
+    Multiply two matrices using NumPy.
 
-""" Check if the arrays are valid """
-if a.size == 0 or b.size == 0:
-    raise ValueError("m_a and m_b can't be empty")
-if not (a.dtype == int or a.dtype == float) or not (b.dtype == int or b.dtype == float):
-    raise TypeError("m_a and m_b should contain only integers or floats")
-if len(a.shape) != 2 or len(b.shape) != 2:
-    raise TypeError("m_a and m_b must be two-dimensional")
-if not all(len(row) == len(a[0]) for row in a) or not all(len(row) == len(b[0]) for row in b):
-    raise TypeError("each row of m_a and m_b must be of the same size")
+    Args:
+        m_a (list of lists): The first matrix.
+        m_b (list of lists): The second matrix.
 
-""" Check if the arrays can be multiplied """
-if a.shape[1] != b.shape[0]:
-    raise ValueError("m_a and m_b can't be multiplied")
+    Returns:
+        numpy.ndarray: The result of matrix multiplication.
 
-""" Perform the multiplication and return the result """
-return np.matmul(a, b)
+    Raises:
+        ValueError: If the matrices cannot be multiplied.
+        TypeError: If the matrices contain invalid data.
+
+    Example:
+
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[1, 2], [3, 4]]
+    >>> result = lazy_matrix_mul(m_a, m_b)
+    >>> print(result)
+    [[ 7 10]
+     [15 22]]
+    """
+    try:
+        np_m_a = np.array(m_a)
+        np_m_b = np.array(m_b)
+        result = np.matmul(np_m_a, np_m_b)
+        return result.tolist()
+    except ValueError:
+        raise ValueError("Matrices cannot be multiplied due to incompatible dimensions")
+    except TypeError:
+        raise TypeError("Matrices must contain only integers or floats")
+
+if __name__ == "__main__":
+    import doctest
+    doctest.testmod()
 
