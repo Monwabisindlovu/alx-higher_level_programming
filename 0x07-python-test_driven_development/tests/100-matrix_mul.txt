@@ -1,0 +1,74 @@
+How to Use 100-matrix_mul.py
+==============================
+
+This module defines a matrix multiplication function ``matrix_mul(m_a, m_b)``.
+
+Usage
+=====
+
+Matrix multiplication is performed using this function. The matrices `m_a` and `m_b` are provided as input, and the result of their multiplication is returned as a new matrix.
+
+::
+
+    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[1, 2], [3, 4]]
+    >>> result = matrix_mul(m_a, m_b)
+    >>> print(result)
+    [[7, 10], [15, 22]]
+
+::
+
+    >>> m_a = [[1, 2]]
+    >>> m_b = [[3, 4], [5, 6]]
+    >>> result = matrix_mul(m_a, m_b)
+    >>> print(result)
+    [[13, 16]]
+
+Invalid Matrices
+================
+
+There are several requirements for the input matrices:
+
+1. Both `m_a` and `m_b` must be lists of lists containing only integers or floats.
+
+::
+
+    >>> m_a = [[1, 2], [3, "4"]]  # Invalid: Contains a non-numeric element
+    >>> matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+        ...
+    TypeError: m_a should contain only integers or floats and m_b should contain only integers or floats
+
+2. Both `m_a` and `m_b` must not be empty matrices.
+
+::
+
+    >>> m_a = [[]]  # Invalid: Empty matrix
+    >>> matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a can't be empty and m_b can't be empty
+
+3. The number of columns in `m_a` must be equal to the number of rows in `m_b` for them to be multiplied.
+
+::
+
+    >>> m_a = [[1, 2], [3, 4]]
+    >>> m_b = [[1, 2, 3], [4, 5, 6]]  # Invalid: Incompatible dimensions
+    >>> matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+        ...
+    ValueError: m_a and m_b can't be multiplied
+
+4. Both `m_a` and `m_b` must be rectangular matrices with rows of equal size.
+
+::
+
+    >>> m_a = [[1, 2], [3, 4], [5, 6, 7]]  # Invalid: Rows of different sizes
+    >>> matrix_mul(m_a, m_b)
+    Traceback (most recent call last):
+        ...
+    TypeError: each row of m_a must be of the same size and each row of m_b must be of the same size
+
+"""
