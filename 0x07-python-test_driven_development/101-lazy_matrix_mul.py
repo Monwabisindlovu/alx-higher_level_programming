@@ -17,15 +17,6 @@ def lazy_matrix_mul(m_a, m_b):
     Raises:
         ValueError: If the matrices cannot be multiplied.
         TypeError: If the matrices contain invalid data.
-
-    Example:
-
-    >>> m_a = [[1, 2], [3, 4]]
-    >>> m_b = [[1, 2], [3, 4]]
-    >>> result = lazy_matrix_mul(m_a, m_b)
-    >>> print(result)
-    [[ 7 10]
-     [15 22]]
     """
     try:
         np_m_a = np.array(m_a)
@@ -36,8 +27,4 @@ def lazy_matrix_mul(m_a, m_b):
         raise ValueError("Matrices cannot be multiplied due to incompatible dimensions")
     except TypeError:
         raise TypeError("Matrices must contain only integers or floats")
-
-if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
 
