@@ -1,0 +1,43 @@
+"""
+5-text_indentation.txt
+
+============================
+How to Use 5-text_indentation.py
+============================
+
+This module defines a text-printing function ``text_indentation(text)``.
+
+Usage
+=====
+
+Texts are printed with 2 new lines after each of these characters: ., ? and :
+
+::
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo?")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    
+    Quonam modo?
+
+Invalid Texts
+=============
+
+The parameter ``text`` must be a string. Otherwise, a TypeError is raised.
+
+::
+
+    >>> text_indentation(12)
+    Traceback (most recent call last):
+    TypeError: text must be a string
+
+At least one argument must be provided.
+
+::
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+"""
+
+
