@@ -7,14 +7,17 @@ modules to be imported.
 
 class MyList(list):
     """
-    A class that inherits from list.
-    
+    A class that inherits from list and prints the list in ascending order.
+
     Methods:
         print_sorted: Prints the list in ascending order.
     """
-    
+
     def print_sorted(self):
         """
         Prints the list in ascending order.
+
+        Returns:
+            None
         """
         print(sorted(self))
