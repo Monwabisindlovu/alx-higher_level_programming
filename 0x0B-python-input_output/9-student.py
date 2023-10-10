@@ -1,31 +1,29 @@
 #!/usr/bin/python3
 
-class Student:
+class MyClass:
     """
-    Defines a student with first_name, last_name, and age attributes.
+    Defines a MyClass with name and number attributes.
     """
 
-    def __init__(self, first_name, last_name, age):
+    
+def __init__(self, name, number):
         """
-        Initializes a Student instance with the provided first_name, last_name, and age.
+        Initializes a MyClass instance with the provided name and number.
         Args:
-            first_name (str): The first name of the student.
-            last_name (str): The last name of the student.
-            age (int): The age of the student.
+            name (str): The name of the MyClass instance.
+            number (int): The number associated with the MyClass instance.
         """
-        self.first_name = first_name
-        self.last_name = last_name
-        self.age = age
+        self.name = name
+        self.number = number
 
-    def to_json(self):
+def to_json(self):
         """
-        Retrieves a dictionary representation of a Student instance.
+        Retrieves a dictionary representation of a MyClass instance.
         Returns:
-            dict: A dictionary containing the student's attributes.
+            dict: A dictionary containing the MyClass instance's attributes.
         """
-        student_json = {
-            'first_name': self.first_name,
-            'last_name': self.last_name,
-            'age': self.age
+        my_class_json = {
+            'name': self.name,
+            'number': self.number
         }
-        return student_json
+        return my_class_json
