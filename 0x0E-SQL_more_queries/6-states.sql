@@ -1,15 +1,9 @@
--- Create database if not exists
+-- Script that creates a new database and a new table with a primary key id data type
 CREATE DATABASE IF NOT EXISTS hbtn_0d_usa;
-
--- Use the database
 USE hbtn_0d_usa;
-
--- Create table states if not exists
 CREATE TABLE IF NOT EXISTS states (
-    id INT AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
-    name VARCHAR(256) NOT NULL
+    id INT NOT NULL AUTO_INCREMENT,
+    name VARCHAR(256) NOT NULL,
+    PRIMARY KEY (id)
 );
-
--- Insert sample data
-INSERT INTO states (name) VALUES ('California'), ('Arizona'), ('Texas');
 
