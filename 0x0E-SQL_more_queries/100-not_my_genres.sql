@@ -1,6 +1,4 @@
 -- Script that uses the hbtn_0d_tvshows database to list all genres not linked to the show Dexter.
--- This script selects the name from tv_genres where the genre name is not in the subquery result,
--- which retrieves genres linked to the show Dexter by an inner join between tv_genres and tv_show_genres.
 SELECT tv_genres.name
 FROM tv_genres
 WHERE tv_genres.name NOT IN
