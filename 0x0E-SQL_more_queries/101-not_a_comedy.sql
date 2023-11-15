@@ -1,12 +1,14 @@
--- List all shows without the genre 'Comedy'.
--- This script selects the title from tv_shows where the title is not in the subquery result,
--- which retrieves titles of shows with the genre 'Comedy' by an inner join between tv_shows and tv_show_genres.
-SELECT s.title
-FROM tv_shows s
-WHERE s.title NOT IN (
-      SELECT s.title
-      FROM tv_shows s
-      INNER JOIN tv_show_genres tsg ON s.id = tsg.show_id
-      INNER JOIN tv_genres tg ON tsg.genre_id = tg.id
-      WHERE tg.name = 'Comedy');
+-- Script that lists shows that don't belong to the Comedy genre
+SELECT tv_shows.title -- Query to get shows excluding comedies
+FROM tv_shows
+LEFT JOIN
+(
+	SELECT tv_shows.title -- Query to get Comedy shows
+	FROM tv_shows
+    JOIN tv_show_genres ON tv_shows.id = tv_show_genres.show_id
+    JOIN tv_genres ON tv_show_genres.genre_id = tv_genres.id
+    WHERE tv_genres.name = 'Comedy'
+) AS comedy_shows
+ON tv_shows.title = comedy_shows.title
+WHERE comedy_shows.title IS NULL;
 
