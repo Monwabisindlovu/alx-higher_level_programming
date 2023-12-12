@@ -1,15 +1,5 @@
 #!/usr/bin/node
-const fs = require('fs');
-
-// Get the file paths from the command line arguments
-const fileA = process.argv[2];
-const fileB = process.argv[3];
-const fileC = process.argv[4];
-
-// Read the contents of fileA and fileB
-const contentA = fs.readFileSync(fileA, 'utf8');
-const contentB = fs.readFileSync(fileB, 'utf8');
-
-// Concatenate the contents and write to fileC
-fs.writeFileSync(fileC, contentA + '\n' + contentB);
-
+const fs = require(fs);
+const a = fs.readFileSync(process.argv[2], utf8);
+const b = fs.readFileSync(process.argv[3], utf8);
+fs.writeFileSync(process.argv[4], a + b);
