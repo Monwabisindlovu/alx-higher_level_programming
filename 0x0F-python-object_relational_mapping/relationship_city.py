@@ -1,19 +1,20 @@
 #!/usr/bin/python3
 """
-Defines the City class
+Module that contains the class definition of a City.
 """
 
 from sqlalchemy import Column, Integer, String, ForeignKey
+from relationship_state import Base, State
 from sqlalchemy.orm import relationship
-from relationship_state import Base
+
 
 class City(Base):
-    """City class"""
+    """
+    Class definition of a City.
+    """
     __tablename__ = 'cities'
-    id = Column(Integer, primary_key=True, nullable=False)
+    id = Column(Integer, primary_key=True, nullable=False,
+                unique=True, autoincrement=True)
     name = Column(String(128), nullable=False)
     state_id = Column(Integer, ForeignKey('states.id'), nullable=False)
-    
-    # Correct the relationship attribute name
     state = relationship("State", back_populates="cities")
-
