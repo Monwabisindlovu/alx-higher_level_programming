@@ -1,4 +1,3 @@
 #!/bin/bash
-# This script sends a GET request to a URL and displays the body of the response
-# A header variable X-School-User-Id is sent with the value 98
+# Take in URL, add header variable, displays "Hello Holberton School!"; Usage: ./4-header.sh 0.0.0.0:5000/route_5 ; echo ""
 curl -s -H "X-HolbertonSchool-User-Id":98 "$1"
