@@ -1,31 +1,21 @@
 #!/usr/bin/python3
+"""Lists the 10 most recent commits on a given GitHub repository.
+Usage: ./100-github_commits.py <repository name> <repository owner>
 """
-Lists 10 commits (from the most recent to oldest) of the repository “rails” by the user “rails”.
-Usage: ./100-github_commits.py <repository name> <owner name>
-"""
-
 import sys
 import requests
 
+
 if __name__ == "__main__":
-    # Extract repository name and owner name from command-line arguments
-    repository_name = sys.argv[1]
-    owner_name = sys.argv[2]
+    url = "https://api.github.com/repos/{}/{}/commits".format(
+        sys.argv[2], sys.argv[1])
 
-    # Set up the URL for the GitHub API
-    url = f'https://api.github.com/repos/{owner_name}/{repository_name}/commits'
-
-    # Make a GET request to the GitHub API to retrieve the commits
-    response = requests.get(url)
-
+    r = requests.get(url)
+    commits = r.json()
     try:
-        # Try to parse the JSON response
-        commits = response.json()
-        # Display the 10 most recent commits
-        for commit in commits[:10]:
-            sha = commit['sha']
-            author_name = commit['commit']['author']['name']
-            print(f"{sha}: {author_name}")
-    except ValueError:
-        # Handle the case where the response is not a valid JSON
-        print("Error: Unable to fetch commits.")
+        for i in range(10):
+            print("{}: {}".format(
+                commits[i].get("sha"),
+                commits[i].get("commit").get("author").get("name")))
+    except IndexError:
+        pass
