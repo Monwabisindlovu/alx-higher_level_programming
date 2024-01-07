@@ -29,4 +29,3 @@ if __name__ == "__main__":
     except ValueError:
         # Handle the case where the response is not a valid JSON
         print("Error: Unable to fetch commits.")
-
