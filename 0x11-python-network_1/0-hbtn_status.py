@@ -5,10 +5,12 @@ Module 0-hbtn_status.py
 
 import urllib.request
 
-def fetch_and_display_status(url):
+def fetch_status():
     """
-    Fetches and displays information from the given URL.
+    Fetches and displays the status of https://alx-intranet.hbtn.io/status.
     """
+    url = 'https://alx-intranet.hbtn.io/status'
+
     with urllib.request.urlopen(url) as response:
         response_content = response.read()
         print("Body response:")
@@ -17,7 +19,5 @@ def fetch_and_display_status(url):
         print("\t- utf8 content: {}".format(response_content.decode("utf-8")))
 
 if __name__ == "__main__":
-    # Specify the URL
-    status_url = 'https://alx-intranet.hbtn.io/status'
-    fetch_and_display_status(status_url)
+    fetch_status()
 
