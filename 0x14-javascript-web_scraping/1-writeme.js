@@ -1,15 +1,14 @@
 #!/usr/bin/node
-/* A script that reads and prints the content of a file. */
+/* A script that writes a string to a file. */
 
 const fs = require('fs');
 
 const filePath = process.argv[2];
+const content = process.argv[3];
 
-fs.readFile(filePath, 'utf-8', (err, data) => {
+fs.writeFile(filePath, content, 'utf-8', (err) => {
   if (err) {
     console.error(err);
-  } else {
-    console.log(data);
   }
 });
 
