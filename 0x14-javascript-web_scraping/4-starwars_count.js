@@ -1,32 +1,28 @@
 #!/usr/bin/node
 /**
-  prints number of movies where the character 'Wedge Antilles' is present.
-  usage: ./4-starwars_count.js <API URL>
-  */
-const myArgs = process.argv.slice(2);
-const request = require('request');
-const characters_ = [];
-request(myArgs[0], function (error, response, body) {
-  if (error) {
-    console.log(error);
-  }
-  if (!error) {
-    let i = 0;
-    const json_ = JSON.parse(body);
+ * Prints the number of movies where the character "Wedge Antilles" is present
+ * The first argument is the API URL of the Star Wars API
+ * Wedge Antilles whose character ID is 18 is used to filter the result
+ * Uses the module 'request'
+ */
 
-    for (i = 0; i < 7; i++) {
-      characters_.push(json_.results[i].characters);
-    }
-  }
-  let counter = 0;
-  characters_.forEach(function each (item) {
-    if (Array.isArray(item)) {
-      item.forEach(each);
+if (process.argv.length === 3) {
+  const request = require('request');
+  const url = process.argv[2];
+  request.get(url, function (e, r, b) {
+    if (e) {
+      throw e;
     } else {
-      if (item === 'https://swapi-api.hbtn.io/api/people/18/') {
-        counter++;
+      const a = JSON.parse(b);
+      let n = 0;
+      for (const i of a.results) {
+        for (const c of i.characters) {
+          if (c.endsWith('18/')) {
+            n++;
+          }
+        }
       }
+      console.log(n);
     }
   });
-  console.log(counter);
-});
+}
