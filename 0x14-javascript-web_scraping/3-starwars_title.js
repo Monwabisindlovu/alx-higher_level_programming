@@ -1,10 +1,24 @@
 #!/usr/bin/node
-/* A script that writes a string to a file. */
+/* A script that prints the title of a Star Wars movie. */
 
-const fs = require('fs');
+const request = require('request');
 
-fs.writeFile(process.argv[2], process.argv[3], error => {
+// Get the movie ID from the command line arguments
+const movieId = process.argv[2];
+
+// Define the Star Wars API endpoint
+const apiUrl = `https://swapi-api.alx-tools.com/api/films/${movieId}`;
+
+// Make a GET request to the Star Wars API
+request(apiUrl, (error, response, body) => {
   if (error) {
-    console.log(error);
+    console.error(error);
+  } else {
+    // Parse the JSON response
+    const movieData = JSON.parse(body);
+
+    // Print the title of the movie
+    console.log(movieData.title);
   }
 });
+
